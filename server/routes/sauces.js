@@ -12,4 +12,21 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get('/:id', async (req, res, next) => {
+    
+  try {
+    const { id } = req.params;
+    const sauces = await Sauce.findByPk(id);
+    res.json(sauces);
+  } catch (error) {
+    next(error);
+    
+  }
+});
+
+
+
+
+
+
 module.exports = router;
