@@ -12,12 +12,13 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// GET /sauce/id
 router.get('/:id', async (req, res, next) => {
     
   try {
     const { id } = req.params;
-    const sauces = await Sauce.findByPk(id);
-    res.json(sauces);
+    const sauce = await Sauce.findByPk(id);
+    res.json(sauce);
   } catch (error) {
     next(error);
     
