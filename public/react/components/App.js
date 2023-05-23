@@ -6,7 +6,7 @@
 	import apiURL from '../api';
 
 	export const App = () => {
-
+		
 		const [sauces, setSauces] = useState([]);
 
 		async function fetchSauces(){
@@ -30,7 +30,7 @@
 				<h2>All things 🔥</h2>
 				<SaucesList sauces={sauces} />
 		<div>
-		<Form />
+		<Form/>
 		</div>
 			</main>
 		)
