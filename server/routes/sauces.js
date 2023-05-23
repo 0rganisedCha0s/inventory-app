@@ -25,8 +25,16 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-
-
+// POST /sauce
+router.post("/", async (req, res, next) => {
+  try {
+    let newItem = req.body;
+    let createdSauce = await Sauce.create(newItem);
+    res.json(createdSauce);
+  } catch (error) {
+    next(error);
+  }
+});
 
 
 
