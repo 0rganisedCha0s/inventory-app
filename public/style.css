@@ -3,3 +3,60 @@
   box-sizing: border-box;
   background-color: rgb(223, 223, 223);
 }
+
+/* Sauces List */
+
+.sauces-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sauce-container {
+  width: 100%; /* Change the width to 100% for mobile */
+  margin: 10px;
+  padding: 10px; 
+  display: flex;
+  flex-direction: column;
+}
+
+.sauce-image {
+  width: 100%;
+  height: auto;
+}
+
+.sauce-info {
+  flex: 1;
+}
+
+.sauce-name {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.sauce-description {
+  margin-bottom: 10px;
+}
+
+.sauce-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sauce-category {
+  font-size: 14px;
+}
+
+.sauce-price {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  /* Adjust styles for screens wider than 768px */
+  .sauces-list {
+    justify-content: space-between;
+  }
+
+  .sauce-container {
+    width: calc(50% - 20px);
+  }
+}
