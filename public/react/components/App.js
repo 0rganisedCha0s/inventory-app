@@ -47,7 +47,7 @@ export const App = () => {
             <DeleteForm />
           </div>
         </>
-      )}
+      )} 
     </main>
   );
 };
