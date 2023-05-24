@@ -1,36 +1,36 @@
 const express = require("express");
 const router = express.Router();
-const { Sauce } = require("../models");
+const { Item } = require("../models");
 
-// GET /sauce
+// GET /item
 router.get("/", async (req, res, next) => {
   try {
-    const sauces = await Sauce.findAll();
-    res.send(sauces);
+    const items = await Item.findAll();
+    res.send(items);
   } catch (error) {
     next(error);
   }
 });
 
-// GET /sauce/id
+// GET /item/id
 router.get('/:id', async (req, res, next) => {
     
   try {
     const { id } = req.params;
-    const sauce = await Sauce.findByPk(id);
-    res.json(sauce);
+    const item = await Item.findByPk(id);
+    res.json(item);
   } catch (error) {
     next(error);
     
   }
 });
 
-// POST /sauce
+// POST /item
 router.post("/add", async (req, res, next) => {
   try {
     let newItem = req.body;
-    let createdSauce = await Sauce.create(newItem);
-    res.json(createdSauce);
+    let createdItem = await Item.create(newItem);
+    res.json(createdItem);
   } catch (error) {
     next(error);
   }

@@ -9,7 +9,7 @@ const Form = () => {
       e.preventDefault();
       console.log(formData)
       try {
-        const response = await fetch('http://localhost:3000/api/sauces/add', {
+        const response = await fetch('http://localhost:3000/api/items/add', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
