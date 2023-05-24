@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ItemsList from './ItemsList';
 import SelectedItem from './SelectedItem';
 import Form from './Form';
+import DeleteForm from './DeleteForm';
 
 import apiURL from '../api';
 
@@ -43,6 +44,7 @@ export const App = () => {
           <ItemsList items={items} onItemClick={handleItemClick} />
           <div>
             <Form />
+            <DeleteForm />
           </div>
         </>
       )}
