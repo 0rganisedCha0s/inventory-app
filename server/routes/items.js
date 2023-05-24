@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { Item } = require("../models");
 
-// GET /item
+
+// GET api/items
 router.get("/", async (req, res, next) => {
   try {
     const items = await Item.findAll();
@@ -12,7 +13,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// GET /item/id
+// GET api/items/id
 router.get('/:id', async (req, res, next) => {
     
   try {
@@ -25,7 +26,7 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-// POST /item
+// POST api/items/add
 router.post("/add", async (req, res, next) => {
   try {
     let newItem = req.body;
@@ -35,6 +36,26 @@ router.post("/add", async (req, res, next) => {
     next(error);
   }
 });
+
+// DELETE /api/items/id
+
+router.delete('/:id', async (req, res,next) => {
+  
+  try {
+    const { id } = req.params;
+    const item = await Item.findByPk(id);
+    if (item) {
+      await item.destroy();
+      res.json({ message: 'Item deleted successfully' });
+    } else {
+      res.status(404).json({ error: 'Item not found' });
+    }
+  } catch (error) {
+    next(error);
+    
+  }
+});
+
 
 
 
