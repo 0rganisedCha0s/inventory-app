@@ -1,8 +1,9 @@
 import React from 'react';
-export const Item = ({item}) => {
-  return <>
- 
-    <div className="item-container">
+
+export default function SelectedItem({item, onBack}) {
+    return <>
+ {/* probably will have to change the class naming slightly as styling will be different, want to display the single item in the middle of the page instead at the top left with flex*/}
+    <div className="single-item">
       <div className="item-image-container">
       <img src={item.image} alt={item.title} className="item-image" />
       </div>
@@ -14,6 +15,7 @@ export const Item = ({item}) => {
           <div className="item-price">{item.price}</div>
         </div>
       </div>
+      <button class="btn-standard" onClick={onBack}> Return </button>
     </div>
   </>
 }
