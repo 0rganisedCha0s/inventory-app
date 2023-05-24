@@ -3,3 +3,54 @@
   box-sizing: border-box;
   background-color: rgb(223, 223, 223);
 }
+ 
+.item-container {
+  width: 20%; /* Change the width to 100% for mobile */
+  margin: 10px;
+  padding: 10px; 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.item-image {
+  width: 100px;
+  height: 100px;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.item-description {
+  margin-bottom: 10px;
+}
+
+.item-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-category {
+  font-size: 14px;
+}
+
+.item-price {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  /* Adjust styles for screens wider than 768px */
+  .item-list {
+    justify-content: space-between;
+  }
+
+  .item-container {
+    width: calc(50% - 20px);
+  }
+}
