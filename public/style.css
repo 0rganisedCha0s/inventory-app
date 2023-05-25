@@ -73,6 +73,11 @@ main {
   background-color: white;
 }
 
+.item-id {
+  width: 100%;
+  background-color: white;
+}
+
 .item-category { 
   font-size: 14px; 
   flex-basis: 50%;
