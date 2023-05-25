@@ -48,12 +48,8 @@ const AddForm = () => {
   
 
   return (
-<<<<<<< HEAD:public/react/components/AddForm.js
-    <form onSubmit={handleSubmit}>
-      <h3>Add Product</h3>
-=======
     <form onSubmit={handleSubmit} className="form-container">
->>>>>>> 37c1d39 (added SelectedItem, still need to style it further. did the styling for ItemList. User can now click on any item in list to display it and then return to the list of items):public/react/components/Form.js
+      <h3>Add Product</h3>
       <input
         type="text"
         name="title"
