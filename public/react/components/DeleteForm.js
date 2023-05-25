@@ -34,6 +34,7 @@ const DeleteForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h3>Delete Product</h3>
       <input
         type="text"
         name="id"

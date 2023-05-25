@@ -45,11 +45,12 @@ export const App = () => {
           <ItemsList items={items} onItemClick={onItemClick} />
           <div>
             <AddForm />
+          
             <UpdateForm />
             <DeleteForm />
           </div>
         </>
       )}
     </main>
-  );
+  ); 
 };

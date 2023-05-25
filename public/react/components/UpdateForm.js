@@ -29,6 +29,7 @@ const UpdateForm = () => {
       if (response.status === 200) {
         setSubmissionStatus('Data submitted successfully!');
         setFormData({});
+        window.location.reload(true)
         e.target.reset(); // Reset the form fields
       } else {
         setSubmissionStatus('Error submitting data: ' + response.status);
@@ -45,6 +46,7 @@ const UpdateForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h3>Update Product</h3>
       <input
         type="text"
         name="productId"
