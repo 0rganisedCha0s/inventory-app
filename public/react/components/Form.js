@@ -30,7 +30,7 @@ const Form = () => {
         setSubmissionStatus('Data submitted successfully!');
         setFormData({});
         e.target.reset(); // Reset the form fields
-        
+        window.location.reload(true)
       } else {
         setSubmissionStatus('Error submitting data: ' + response.status);
       }
