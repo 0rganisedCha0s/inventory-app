@@ -38,7 +38,6 @@ router.post("/add", async (req, res, next) => {
 });
 
 // DELETE /api/items/id
-
 router.delete('/:id', async (req, res,next) => {
   
   try {
@@ -55,7 +54,7 @@ router.delete('/:id', async (req, res,next) => {
     
   }
 });
-
+// PUT /api/items/id
 router.put('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ItemsList from './ItemsList';
 import SelectedItem from './SelectedItem';
 import AddForm from './AddForm';
-import UpdateForm from './UpdateFormForm';
+import UpdateForm from './UpdateForm';
 import DeleteForm from './DeleteForm';
 
 import apiURL from '../api';
@@ -45,11 +45,12 @@ export const App = () => {
           <ItemsList items={items} onItemClick={handleItemClick} />
           <div>
             <AddForm />
+          
             <UpdateForm />
             <DeleteForm />
           </div>
         </>
       )} 
     </main>
-  );
+  ); 
 };
