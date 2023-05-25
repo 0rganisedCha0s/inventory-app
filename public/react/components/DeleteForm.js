@@ -17,6 +17,7 @@ const DeleteForm = () => {
 
       if (response.status === 200) {
         setSubmissionStatus('Data deleted successfully!');
+        window.location.reload(true)
         setProductId('');
       } else {
         setSubmissionStatus('Error deleting data: ' + response.status);
