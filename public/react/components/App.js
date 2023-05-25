@@ -11,7 +11,7 @@ export const App = () => {
   const [items, setItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const handleItemClick = (item) => {
+  const onItemClick = (item) => {
     setSelectedItem(item);
   };
 
@@ -25,7 +25,7 @@ export const App = () => {
 
   async function fetchItems() {
     try {
-      const response = await fetch(`${apiURL}/items`);
+      const response = await fetch(`https://646e1c846d0e1f00b25bde26--rainbow-madeleine-e0519b.netlify.app/.netlify/functions/items`);
       const itemData = await response.json();
       console.log(itemData);
       setItems(itemData);
@@ -42,14 +42,14 @@ export const App = () => {
         <SelectedItem item={selectedItem} onBack={handleBackToItems} />
       ) : (
         <>
-          <ItemsList items={items} onItemClick={handleItemClick} />
+          <ItemsList items={items} onItemClick={onItemClick} />
           <div>
             <AddForm />
             <UpdateForm />
             <DeleteForm />
           </div>
         </>
-      )} 
+      )}
     </main>
   );
 };

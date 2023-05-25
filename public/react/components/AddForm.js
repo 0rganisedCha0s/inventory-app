@@ -47,13 +47,14 @@ const AddForm = () => {
   
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-container">
       <input
         type="text"
         name="title"
         placeholder="Title"
         required
         onChange={handleChange}
+        class="form-item"
       />
       <input
         type="text"
@@ -63,6 +64,7 @@ const AddForm = () => {
         pattern="[0-9]+(\.[0-9]{1,2})?"
         title="Enter a valid price (e.g., 10.99)"
         onChange={handleChange}
+        class="form-item"
       />
       <input
         type="text"
@@ -70,9 +72,10 @@ const AddForm = () => {
         placeholder="Description"
         required
         onChange={handleChange}
+        class="form-item"
       />
 
-      <select name="category" onChange={handleChange}>
+      <select name="category" onChange={handleChange} class="form-item">
         <option value="men's clothing">Men's clothing</option>
         <option value="jewelery">Jewelery</option>
         <option value="electronics">Electronics</option>
@@ -83,7 +86,7 @@ const AddForm = () => {
 
   
 
-      <button type="submit">Submit</button>
+      <button type="submit" class="form-item">Submit</button>
 
       {submissionStatus && <p>{submissionStatus}</p>}
     </form>
