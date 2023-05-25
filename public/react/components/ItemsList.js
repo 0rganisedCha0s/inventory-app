@@ -1,16 +1,16 @@
 import React from 'react';
 import { Item } from './Item';
 
-export default function ItemsList({items,onItemClick}) {
-	return (
-		<div className="item-list">
-		  {items.map((item, idx) => (
-			<Item
-			  item={item}
-			  key={idx}
-			  onClick={() => onItemClick(item)}
-			/>
-		  ))}
-		</div>
-	  );
-	}
+const ItemsList = ({ items, onItemClick }) => {
+  return (
+    <div>
+      {items.map((item) => (
+        <div key={item.id} onClick={() => onItemClick(item)}>
+          <Item item={item} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ItemsList;

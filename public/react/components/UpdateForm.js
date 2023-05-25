@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 
-const Form = () => {
+const UpdateForm = () => {
+  const [productId, setProductId] = useState('');
   const [formData, setFormData] = useState({});
   const [submissionStatus, setSubmissionStatus] = useState('');
- 
+
+  const handleProductIdChange = (e) => {
+    setProductId(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const category = e.target.elements.category.value;
-    
-
     const updatedFormData = {
       ...formData,
-      category
-      
+      category: e.target.elements.category.value
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/items/add', {
-        method: 'POST',
+      const response = await fetch(`http://localhost:3000/api/items/${productId}`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -30,7 +30,6 @@ const Form = () => {
         setSubmissionStatus('Data submitted successfully!');
         setFormData({});
         e.target.reset(); // Reset the form fields
-        window.location.reload(true)
       } else {
         setSubmissionStatus('Error submitting data: ' + response.status);
       }
@@ -44,10 +43,16 @@ const Form = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  
-
   return (
     <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="productId"
+        placeholder="Product ID"
+        required
+        value={productId}
+        onChange={handleProductIdChange}
+      />
       <input
         type="text"
         name="title"
@@ -74,14 +79,12 @@ const Form = () => {
 
       <select name="category" onChange={handleChange}>
         <option value="men's clothing">Men's clothing</option>
-        <option value="jewelery">Jewelery</option>
+        <option value="jewelry">Jewelry</option>
         <option value="electronics">Electronics</option>
         <option value="women's clothing">Women's clothing</option>
       </select>
 
       <input type="text" name="image" placeholder="Image" onChange={handleChange} />
-
-  
 
       <button type="submit">Submit</button>
 
@@ -90,4 +93,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default UpdateForm;
