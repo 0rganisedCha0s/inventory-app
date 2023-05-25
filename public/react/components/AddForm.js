@@ -48,14 +48,19 @@ const AddForm = () => {
   
 
   return (
+<<<<<<< HEAD:public/react/components/AddForm.js
     <form onSubmit={handleSubmit}>
       <h3>Add Product</h3>
+=======
+    <form onSubmit={handleSubmit} className="form-container">
+>>>>>>> 37c1d39 (added SelectedItem, still need to style it further. did the styling for ItemList. User can now click on any item in list to display it and then return to the list of items):public/react/components/Form.js
       <input
         type="text"
         name="title"
         placeholder="Title"
         required
         onChange={handleChange}
+        class="form-item"
       />
       <input
         type="text"
@@ -65,6 +70,7 @@ const AddForm = () => {
         pattern="[0-9]+(\.[0-9]{1,2})?"
         title="Enter a valid price (e.g., 10.99)"
         onChange={handleChange}
+        class="form-item"
       />
       <input
         type="text"
@@ -72,9 +78,10 @@ const AddForm = () => {
         placeholder="Description"
         required
         onChange={handleChange}
+        class="form-item"
       />
 
-      <select name="category" onChange={handleChange}>
+      <select name="category" onChange={handleChange} class="form-item">
         <option value="men's clothing">Men's clothing</option>
         <option value="jewelery">Jewelery</option>
         <option value="electronics">Electronics</option>
@@ -85,7 +92,7 @@ const AddForm = () => {
 
   
 
-      <button type="submit">Submit</button>
+      <button type="submit" class="form-item">Submit</button>
 
       {submissionStatus && <p>{submissionStatus}</p>}
     </form>
