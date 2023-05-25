@@ -56,6 +56,22 @@ router.delete('/:id', async (req, res,next) => {
   }
 });
 
+router.put('/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const updatedItem = req.body;
+
+    const item = await Item.findByPk(id);
+    if (item) {
+      await item.update(updatedItem);
+      res.json(item);
+    } else {
+      res.status(404).json({ error: 'Item not found' });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
 
 
 
