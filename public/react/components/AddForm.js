@@ -49,7 +49,7 @@ const AddForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
-      <h3>Add Product</h3>
+    <h3>Add Product</h3>
       <input
         type="text"
         name="title"
