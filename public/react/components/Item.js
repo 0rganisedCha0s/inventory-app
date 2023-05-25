@@ -10,6 +10,7 @@ export const Item = ({item, onItemClick}) => {
         <h3 className="item-name">{item.title}</h3>
         <p className="item-description">{item.description}</p>
         <div className="item-bottom">
+          <div className="item-id">ID: {item.id}</div>
           <div className="item-category">{item.category}</div>
           <div className="item-price">£{item.price.toFixed(2)}</div> 
          
