@@ -13,4 +13,5 @@ const ItemsList = ({ items, onItemClick }) => {
   </div>
   );
 };
+
 export default ItemsList;
