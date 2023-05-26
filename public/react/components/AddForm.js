@@ -34,6 +34,7 @@ const AddForm = () => {
       if (response.status === 200) {
         setSubmissionStatus('Data submitted successfully!');
         setFormData({});
+        window.location.reload(true)
         e.target.reset(); // Reset the form fields
         
       } else {
@@ -53,8 +54,10 @@ const AddForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
-  
       <h2>Add New Item</h2>
+
+      <h3>Add Product</h3>
+
       <input
         type="text"
         name="title"

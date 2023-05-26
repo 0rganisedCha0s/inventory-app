@@ -85,6 +85,16 @@ main {
 
 .item-category {
   font-size: 14px;
+
+.item-id {
+  width: 100%;
+  background-color: white;
+}
+
+.item-category { 
+  font-size: 14px; 
+  flex-basis: 50%;
+
   text-align: left;
   background-color: white;
   color: #5123E5;

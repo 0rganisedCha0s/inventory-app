@@ -29,6 +29,7 @@ const UpdateForm = () => {
       if (response.status === 200) {
         setSubmissionStatus('Data submitted successfully!');
         setFormData({});
+        window.location.reload(true)
         e.target.reset(); // Reset the form fields
       } else {
         setSubmissionStatus('Error submitting data: ' + response.status);
@@ -42,6 +43,7 @@ const UpdateForm = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
 
   return ( 
      <form onSubmit={handleSubmit} className="form-container">
@@ -85,8 +87,7 @@ const UpdateForm = () => {
           onChange={handleChange}
           class="form-item"
         />
-
-        <select  class="form-item" name="category" onChange={handleChange}>
+          <select  class="form-item" name="category" onChange={handleChange}>
           <option value="men's clothing">Men's clothing</option>
           <option value="jewelry">Jewelry</option>
           <option value="electronics">Electronics</option>
