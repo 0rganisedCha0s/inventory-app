@@ -28,7 +28,7 @@ export const App = () => {
   // Function to fetch the items from the api
   async function fetchItems() {
     try {
-      const response = await fetch(`https://646e1c846d0e1f00b25bde26--rainbow-madeleine-e0519b.netlify.app/.netlify/functions/items`);
+      const response = await fetch(`${apiURL}/items`);
       const itemData = await response.json();
       console.log(itemData);
       setItems(itemData);
