@@ -1,14 +1,25 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Azeret Mono', monospace;
   
+}
+h1{
+  color: white;
+  text-align: center;
+}
+h2{
+  color:rgba(245, 245, 245, 0.842) ;
+  text-align: center;
 }
 main {
   background: rgb(206,174,238);
   background: radial-gradient(circle, rgba(206,174,238,1) 0%, rgba(72,25,228,1) 100%);
 }
 
-/*ITEM LIST STYLE SECTION*/
+/*//////////////////////////
+  ITEM LIST STYLE SECTION  - see ItemList.js
+//////////////////////////*/
 .item-list {
   display: flex;
   flex-wrap: wrap;
@@ -21,17 +32,16 @@ main {
   margin: 10px;
   padding: 10px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   background-color: white;
   border-radius: 5px;
 }
 
 .item-image-container {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   background-color: white;
 }
- 
 
 .item-image {
   width: 100px;
@@ -41,7 +51,7 @@ main {
 
 .item-image:hover {
   width: 120px;
-  height: 120px; 
+  height: 120px;
 }
 
 .item-info {
@@ -50,59 +60,59 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: white;
 }
 
 .item-name {
   font-size: 18px;
-  margin-bottom: 5px;
-  background-color: white;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #5123E5;
 }
 
 .item-description {
   margin-bottom: 10px;
-  background-color: white;
+  color: #8961E9;
 }
 
 .item-bottom {
-  display: flex; 
+  display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: wrap;
   width: 100%;
-  background-color: white;
+  margin-top: auto; /* Pushes the item-bottom to the bottom of the container */
 }
 
-.item-category { 
-  font-size: 14px; 
-  flex-basis: 50%;
+.item-category {
+  font-size: 14px;
   text-align: left;
   background-color: white;
+  color: #5123E5;
+  font-weight: bold;
 }
 
 .item-price {
-  font-weight: bold; 
-  flex-basis: 50%;
-  text-align: right;  
+  font-weight: bold;
+  text-align: right;
   background-color: white;
-  font-size:14px;
-}
-
-@media (min-width: 768px) {
-  /* Adjust styles for screens wider than 768px */
-  .item-container {
-    width: calc(50% - 20px);
-  }
-}
-/*SINGLE ITEM VIEW*/
+  font-size: 14px;
+  color: #5123E5;
+} 
+ /*////////////////
+  SINGLE ITEM VIEW - see ListItems.js
+////////////////*/ 
 
 .single-item {
   display: flex;
-  flex-direction: column; 
-  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   margin-top: 50px;
   max-width: 400px;
+  color: white;
+  margin: 0 auto; /* Added to center the item horizontally */
+  height: 100vh; /* Added to center the item vertically */
 }
 
 .single-item-name {
@@ -119,6 +129,10 @@ main {
   height: 250px;
   border-radius: 5px;
   box-shadow: 5px;
+}
+
+.single-item-image:hover {
+  opacity: 80%;
 }
 
 .single-item-info {
@@ -143,52 +157,96 @@ main {
   font-weight: bold;
 }
 
-
-/* first attempt, failed ish 
-.single-item {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-
-}
-
-.single-item-image-container{
-  display: flex;
-  justify-content: center;
-}
-
-.single-item-info{
-  display: flex;
-  justify-content: center;
-}
-
-.single-item-name{
-  display: flex;
-  justify-content: center;
-}
-.single-item-bottom{
-  display: flex;
-  justify-content: center;
-}
-.single-item-category{
-  display: flex;
-  justify-content: flex-start;
-}
-.single-item-price{
-  display: flex;
-  justify-content: flex-end;
-} */
-
-/* FORM */
+   
+/*//////////////
+    FORM - styling for each of the forms
+//////////////*/
 
 .form-container {
+  margin: 10px;
   display: flex;
+  align-items: center;
   justify-content: space-around;
   flex-direction: column; 
-  
+  color:blue; 
 }
-
+/*the form-item class has been applied to every input field on the form */
 .form-item {
   color:blue;
+}
+/*change placeholder text compatibility with Chrome, Firefox, Opera, Safari 10.1+ */
+.form-item::placeholder {
+  color:blue;
+  opacity: 1; /* Firefox due to it having a standard of adding a lower opacity to the placeholder*/
+}
+/*change placeholder text compatibility with Internet Explorer 10-11*/
+.form-item:-ms-input-placeholder {
+  color:blue;
+}
+.form-item::-ms-input-placeholder { /* Microsoft Edge */
+  color:blue;
+}
+/* Style inputs, select elements and textareas */
+input[type=text], select, textarea{
+  width: 30%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Needed for Product Id styling on the DeleteForm*/
+input[type=number], select, textarea{
+  width: 30%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+ 
+ 
+/* Style the submit button UodateForm and AddForm*/
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+ 
+  
+
+/*////////////////
+    BUTTONS
+///////////////*/
+
+button{
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px ;
+
+}
+/*btn-standard class is applied to return and submit buttons*/
+
+.btn-standard{
+  color: #5D3FD3; 
+}
+
+.btn-standard:hover{
+  font-weight: bold;
+}
+
+/*btn-alert would be for things that require users close attention such as delete*/
+.btn-alert{
+  color: coral;
+ 
+}
+
+.btn-alert:hover{
+  font-weight: bold;
 }

@@ -33,16 +33,19 @@ const DeleteForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-container">
+      <h2>Delete Item</h2>
       <input
-        type="text"
+        type="number"
+        min="1"
         name="id"
         placeholder="Product ID"
         required
         value={productId}
         onChange={handleChange}
+        class="form-item"
       />
-      <button type="submit">Delete</button>
+      <button className='btn-alert' type="submit">Delete</button>
 
       {submissionStatus && <p>{submissionStatus}</p>}
     </form>
