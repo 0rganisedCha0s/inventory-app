@@ -7,25 +7,69 @@
 h1{
   color: white;
   text-align: center;
+  padding: 20px;
 }
 h2{
-  color:rgba(245, 245, 245, 0.842) ;
-  text-align: center;
+  color:aliceblue;
+  text-shadow: 0 2px 1px #76119e, 
+  -1px 3px 1px #a24cad, 
+  -2px 5px 1px  #816eb6;
 }
 main {
-  background: rgb(140, 134, 155);
-  background: radial-gradient(circle, rgb(111, 108, 114) 0%, rgba(72,25,228,1) 100%); 
+  background: rgb(206,174,238);
+  background: radial-gradient(circle, rgba(206,174,238,1) 0%, rgba(72,25,228,1) 100%);
+ 
 }
-
+/*/////////////////////////
+        SEARCH BAR
+/////////////////////////*/
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+#search {
+  width: 200px;
+  margin-right: 5px;
+  padding-right: 25px;
+}
+.search-icon {
+  font-size: 18px;
+  cursor: pointer;
+}
+/* styling to help with the search icon being like a placeholder inside of the search bar*/
+.input-container {
+  position: relative;
+}
+.input-container input {
+  padding-right: 30px; /* Add padding on the right side for the search icon */
+}
+.input-container .search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+.input-container input:focus {
+  outline: 2px solid  #a24cad; /* Change the outline color when the input is focused by using outline to overrride default browser settings*/
+}
+.input-container input:active {
+  outline: 2px solid  #76119e ; /* Change the outline color when the input is active (being clicked) */
+}
+/* removing the hand curor */
+.search-bar .search-icon {
+  cursor: default; /* or cursor: auto; */
+}
 /*//////////////////////////
-  ITEM LIST STYLE SECTION  - see ItemList.js
+  ITEM LIST STYLE SECTION 
+     (see ItemList.js)
 //////////////////////////*/
 .item-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .item-container {
   width: 100%;
   max-width: 400px;
@@ -35,25 +79,22 @@ main {
   flex-direction: column;
   background-color: white;
   border-radius: 5px;
+  
 }
-
 .item-image-container {
   display: flex;
   justify-content: center;
   background-color: white;
 }
-
 .item-image {
   width: 100px;
   height: 100px;
   border-radius: 5px;
 }
-
 .item-image:hover {
   width: 120px;
   height: 120px;
 }
-
 .item-info {
   flex: 1;
   display: flex;
@@ -61,19 +102,16 @@ main {
   align-items: center;
   text-align: center;
 }
-
 .item-name {
   font-size: 18px;
   margin-bottom: 10px;
   text-align: center;
   color: #5123E5;
 }
-
 .item-description {
   margin-bottom: 10px;
   color: #8961E9;
 }
-
 .item-bottom {
   display: flex;
   justify-content: space-between;
@@ -82,23 +120,18 @@ main {
   width: 100%;
   margin-top: auto; /* Pushes the item-bottom to the bottom of the container */
 }
-
-
 .item-id {
   width: 100%;
   background-color: white;
 }
-
 .item-category { 
   font-size: 14px; 
   flex-basis: 50%;
-
   text-align: left;
   background-color: white;
   color: #5123E5;
   font-weight: bold;
 }
-
 .item-price {
   font-weight: bold;
   text-align: right;
@@ -107,9 +140,9 @@ main {
   color: #5123E5;
 } 
  /*////////////////
-  SINGLE ITEM VIEW - see ListItems.js
+  SINGLE ITEM VIEW
+(see ListItems.js)
 ////////////////*/ 
-
 .single-item {
   display: flex;
   flex-direction: column;
@@ -120,58 +153,49 @@ main {
   max-width: 400px;
   color: white;
   margin: 0 auto; /* Added to center the item horizontally */
-  height: 100vh; /* Added to center the item vertically */
+  height: 100vh; /* Added to center the item vertically (vh is verical height) */
 }
-
 .single-item-name {
   font-size: 24px;
   margin-bottom: 10px;
 }
-
 .single-item-image-container {
   margin-bottom: 20px;
 }
-
 .single-item-image {
   width: 200px;
   height: 250px;
   border-radius: 5px;
   box-shadow: 5px;
 }
-
 .single-item-image:hover {
   opacity: 80%;
 }
-
 .single-item-info {
   margin-bottom: 20px;
 }
-
 .single-item-description {
   margin-bottom: 10px;
 }
-
 .single-item-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .single-item-category {
   font-weight: bold;
 }
-
 .single-item-price {
   font-weight: bold;
 }
-
    
-/*//////////////
-    FORM - styling for each of the forms
-//////////////*/
-
+/*////////////////////////////
+           FORM 
+styling for each of the forms
+////////////////////////////*/
 .form-container {
-  margin: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -182,7 +206,7 @@ main {
 .form-item {
   color:blue;
 }
-/*change placeholder text compatibility with Chrome, Firefox, Opera, Safari 10.1+ */
+/*change placeholder text compatibility with Chrome, Firefox, Opera, Safari */
 .form-item::placeholder {
   color:blue;
   opacity: 1; /* Firefox due to it having a standard of adding a lower opacity to the placeholder*/
@@ -196,65 +220,47 @@ main {
 }
 /* Style inputs, select elements and textareas */
 input[type=text], select, textarea{
-  width: 30%;
-  padding: 12px;
-  border: 1px solid #ccc;
+  width: 30%; 
+  border: 1px solid rgba(240, 46, 170, 0.4);
   border-radius: 4px;
-  box-sizing: border-box;
-  resize: vertical;
-}
-
+  box-sizing: border-box; 
+  padding: 15px;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+  
+ }
 /* Needed for Product Id styling on the DeleteForm*/
 input[type=number], select, textarea{
   width: 30%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
-  resize: vertical;
-}
- 
- 
-/* Style the submit button UodateForm and AddForm*/
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
+  box-sizing: border-box;  
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
  
   
-
 /*////////////////
     BUTTONS
 ///////////////*/
-
 button{
   margin-top: 1rem;
   padding: 0.5rem;
   border: none;
   border-radius: 5px ;
-
 }
 /*btn-standard class is applied to return and submit buttons*/
-
 .btn-standard{
   color: #5D3FD3; 
 }
-
 .btn-standard:hover{
   font-weight: bold;
 }
-
 /*btn-alert would be for things that require users close attention such as delete*/
 .btn-alert{
-  color: coral;
+  color:  rgba(219, 30, 150, 0.788);
  
 }
-
 .btn-alert:hover{
   font-weight: bold;
+}
 }
