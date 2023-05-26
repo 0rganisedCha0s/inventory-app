@@ -3,7 +3,12 @@ import React, { useState } from 'react';
 const AddForm = () => {
   const [formData, setFormData] = useState({});
   const [submissionStatus, setSubmissionStatus] = useState('');
- 
+  const [message, setMessage] = useState("");
+
+  const clearFields = (event) => {
+    setMessage(event.target.value);
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,17 +50,20 @@ const AddForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  
+ 
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
-    <h3>Add Product</h3>
+      <h2>Add New Item</h2>
+
+      <h3>Add Product</h3>
+
       <input
         type="text"
         name="title"
         placeholder="Title"
         required
-        onChange={handleChange}
+        onChange={handleChange} 
         class="form-item"
       />
       <input
@@ -84,13 +92,13 @@ const AddForm = () => {
         <option value="women's clothing">Women's clothing</option>
       </select>
 
-      <input type="text" name="image" placeholder="Image" onChange={handleChange} />
-
-  
-
-      <button type="submit" class="form-item">Submit</button>
+      <input type="text" name="image" placeholder="Image" onChange={handleChange}  class="form-item" />
+ 
+      <button type="submit" class="btn-standard">Submit</button>
+ 
 
       {submissionStatus && <p>{submissionStatus}</p>}
+
     </form>
   );
 };

@@ -36,8 +36,8 @@ export const App = () => {
 
   return (
     <main>
-      <h1>Item Store</h1>
-      <h2>All things 🔥</h2>
+      <h1>Shop Until You Drop</h1>
+      <h2>🔥 All things 🔥</h2>
       {selectedItem ? (
         <SelectedItem item={selectedItem} onBack={handleBackToItems} />
       ) : (
