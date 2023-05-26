@@ -1,9 +1,20 @@
+
   import React, { useState } from 'react';
 
   const AddForm = () => {
     const [formData, setFormData] = useState({});
     const [submissionStatus, setSubmissionStatus] = useState('');
   
+
+import React, { useState } from "react";
+
+// Code for the AddForm Component
+const AddForm = () => {
+  const [formData, setFormData] = useState({});
+  const [submissionStatus, setSubmissionStatus] = useState("");
+  const [message, setMessage] = useState("");
+
+
 
 
     const handleSubmit = async (e) => {
@@ -99,4 +110,4 @@
     );
   };
 
-  export default AddForm;
+  

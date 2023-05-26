@@ -83,9 +83,6 @@ main {
   margin-top: auto; /* Pushes the item-bottom to the bottom of the container */
 }
 
-.item-category {
-  font-size: 14px;
-}
 
 .item-id {
   width: 100%;
