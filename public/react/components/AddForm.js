@@ -1,69 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
+// Code for the AddForm Component
 const AddForm = () => {
   const [formData, setFormData] = useState({});
-  const [submissionStatus, setSubmissionStatus] = useState('');
+  const [submissionStatus, setSubmissionStatus] = useState("");
   const [message, setMessage] = useState("");
 
   const clearFields = (event) => {
     setMessage(event.target.value);
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const category = e.target.elements.category.value;
-    
 
     const updatedFormData = {
       ...formData,
-      category
-      
+      category,
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/items/add', {
-        method: 'POST',
+      // Send a POST request to delete the item with the specified productId
+      const response = await fetch("http://localhost:3000/api/items/add", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(updatedFormData),
       });
 
       if (response.status === 200) {
-        setSubmissionStatus('Data submitted successfully!');
+        // Item addition was successful
+        setSubmissionStatus("Data submitted successfully!");
         setFormData({});
-        window.location.reload(true)
+        window.location.reload(true);
         e.target.reset(); // Reset the form fields
-        
       } else {
-        setSubmissionStatus('Error submitting data: ' + response.status);
+        // Show error if there is a problem like item not found
+        setSubmissionStatus("Error submitting data: " + response.status);
       }
     } catch (error) {
-      console.error('Error:', error);
-      setSubmissionStatus('Error: ' + error.message);
+      console.error("Error:", error);
+      setSubmissionStatus("Error: " + error.message);
     }
   };
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
- 
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
       <h2>Add New Item</h2>
 
-      <h3>Add Product</h3>
-
+      {/* Input fields */}
       <input
         type="text"
         name="title"
         placeholder="Title"
         required
-        onChange={handleChange} 
+        onChange={handleChange}
         class="form-item"
       />
       <input
@@ -71,7 +67,6 @@ const AddForm = () => {
         name="price"
         placeholder="Price"
         required
-        pattern="[0-9]+(\.[0-9]{1,2})?"
         title="Enter a valid price (e.g., 10.99)"
         onChange={handleChange}
         class="form-item"
@@ -85,6 +80,7 @@ const AddForm = () => {
         class="form-item"
       />
 
+      {/* Dropdown menu for category selection */}
       <select name="category" onChange={handleChange} class="form-item">
         <option value="men's clothing">Men's clothing</option>
         <option value="jewelery">Jewelery</option>
@@ -92,13 +88,22 @@ const AddForm = () => {
         <option value="women's clothing">Women's clothing</option>
       </select>
 
-      <input type="text" name="image" placeholder="Image" onChange={handleChange}  class="form-item" />
- 
-      <button type="submit" class="btn-standard">Submit</button>
- 
+      {/* Optional image field */}
+      <input
+        type="text"
+        name="image"
+        placeholder="Image"
+        onChange={handleChange}
+        class="form-item"
+      />
 
+      {/* Submit button */}
+      <button type="submit" class="btn-standard">
+        Submit
+      </button>
+
+      {/* Display submission status */}
       {submissionStatus && <p>{submissionStatus}</p>}
-
     </form>
   );
 };
