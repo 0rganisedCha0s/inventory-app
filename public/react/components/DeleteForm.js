@@ -33,9 +33,10 @@ const DeleteForm = () => {
   };
 
   return (
-
+ 
     <form onSubmit={handleSubmit} className="form-container">
-      <h2>Delete Item</h2>
+   
+ 
       <input
         type="number"
         min="1"
