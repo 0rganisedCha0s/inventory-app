@@ -1,44 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // Code for the AddForm Component
 const AddForm = () => {
   const [formData, setFormData] = useState({});
-  const [submissionStatus, setSubmissionStatus] = useState('');
-  
+  const [submissionStatus, setSubmissionStatus] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const category = e.target.elements.category.value;
-    
+
     const updatedFormData = {
       ...formData,
-      category
-      
+      category,
     };
     try {
-      const response = await fetch('http://localhost:3000/api/items/add', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3000/api/items/add", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(updatedFormData),
       });
       if (response.status === 200) {
-        setSubmissionStatus('Data submitted successfully!');
+        setSubmissionStatus("Data submitted successfully!");
         setFormData({});
-        window.location.reload(true)
+        window.location.reload(true);
         e.target.reset(); // Reset the form fields
-        
       } else {
-        setSubmissionStatus('Error submitting data: ' + response.status);
+        setSubmissionStatus("Error submitting data: " + response.status);
       }
     } catch (error) {
-      console.error('Error:', error);
-      setSubmissionStatus('Error: ' + error.message);
+      console.error("Error:", error);
+      setSubmissionStatus("Error: " + error.message);
     }
   };
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
- 
+
   return (
     <form onSubmit={handleSubmit} className="form-container">
       <h2>Add New Item</h2>
