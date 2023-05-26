@@ -3,10 +3,7 @@ import React, { useState } from 'react';
 const AddForm = () => {
   const [formData, setFormData] = useState({});
   const [submissionStatus, setSubmissionStatus] = useState('');
-  const [message, setMessage] = useState("");
-  const clearFields = (event) => {
-    setMessage(event.target.value);
-  };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const category = e.target.elements.category.value;
