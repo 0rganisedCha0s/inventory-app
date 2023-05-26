@@ -8,6 +8,7 @@ const DeleteForm = () => {
     e.preventDefault();
 
     try {
+      // Send a DELETE request to delete the item with the specified productId
       const response = await fetch(`http://localhost:3000/api/items/${productId}`, {
         method: 'DELETE',
         headers: {
@@ -16,10 +17,12 @@ const DeleteForm = () => {
       });
 
       if (response.status === 200) {
+        // Item deletion was successful
         setSubmissionStatus('Data deleted successfully!');
-        window.location.reload(true)
+        window.location.reload(true);
         setProductId('');
       } else {
+        // Show error if there is a problem like item not found
         setSubmissionStatus('Error deleting data: ' + response.status);
       }
     } catch (error) {
@@ -29,14 +32,13 @@ const DeleteForm = () => {
   };
 
   const handleChange = (e) => {
+    // Update the productId state when the input value changes
     setProductId(e.target.value);
   };
 
   return (
- 
     <form onSubmit={handleSubmit} className="form-container">
-   
- 
+      <h2>Delete Item</h2>
       <input
         type="number"
         min="1"

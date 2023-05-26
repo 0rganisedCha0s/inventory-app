@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// Code for the AddForm Component
 const AddForm = () => {
   const [formData, setFormData] = useState({});
   const [submissionStatus, setSubmissionStatus] = useState('');
@@ -56,25 +57,23 @@ const AddForm = () => {
     <form onSubmit={handleSubmit} className="form-container">
       <h2>Add New Item</h2>
 
-      <h3>Add Product</h3>
-
+      {/* Input fields */}
       <input
         type="text"
         name="title"
         placeholder="Title"
         required
-        onChange={handleChange} 
-        class="form-item"
+        onChange={handleChange}
+        className="form-item"
       />
       <input
         type="text"
         name="price"
         placeholder="Price"
         required
-        pattern="[0-9]+(\.[0-9]{1,2})?"
         title="Enter a valid price (e.g., 10.99)"
         onChange={handleChange}
-        class="form-item"
+        className="form-item"
       />
       <input
         type="text"
@@ -82,9 +81,10 @@ const AddForm = () => {
         placeholder="Description"
         required
         onChange={handleChange}
-        class="form-item"
+        className="form-item"
       />
 
+      {/* Dropdown menu for category selection */}
       <select name="category" onChange={handleChange} class="form-item">
         <option value="men's clothing">Men's clothing</option>
         <option value="jewelery">Jewelery</option>
@@ -92,13 +92,22 @@ const AddForm = () => {
         <option value="women's clothing">Women's clothing</option>
       </select>
 
-      <input type="text" name="image" placeholder="Image" onChange={handleChange}  class="form-item" />
- 
-      <button type="submit" class="btn-standard">Submit</button>
- 
+      {/* Optional image field */}
+      <input
+        type="text"
+        name="image"
+        placeholder="Enter Image's URL"
+        onChange={handleChange}
+        className="form-item"
+      />
 
+      {/* Submit button */}
+      <button type="submit" className="btn-standard">
+        Submit
+      </button>
+
+      {/* Display submission status */}
       {submissionStatus && <p>{submissionStatus}</p>}
-
     </form>
   );
 };

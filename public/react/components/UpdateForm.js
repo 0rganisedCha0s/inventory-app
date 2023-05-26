@@ -45,47 +45,54 @@ const UpdateForm = () => {
   };
 
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <h3>Update Product</h3>
-      <input
-        type="text"
-        name="productId"
-        placeholder="Product ID"
-        required
-        value={productId}
-        onChange={handleProductIdChange}
-      />
-      <input
-        type="text"
-        name="title"
-        placeholder="Title"
-        required
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="price"
-        placeholder="Price"
-        required
-        pattern="[0-9]+(\.[0-9]{1,2})?"
-        title="Enter a valid price (e.g., 10.99)"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="description"
-        placeholder="Description"
-        required
-        onChange={handleChange}
-      />
-
-      <select name="category" onChange={handleChange}>
-        <option value="men's clothing">Men's clothing</option>
-        <option value="jewelry">Jewelry</option>
-        <option value="electronics">Electronics</option>
-        <option value="women's clothing">Women's clothing</option>
-      </select>
+  return ( 
+     <form onSubmit={handleSubmit} className="form-container">
+        <h2>Edit Existing Item</h2>
+        <input
+          type="number"
+          min="1"
+          name="productId"
+          placeholder="Product ID"
+          required
+          value={productId}
+          onChange={handleProductIdChange}
+          class="form-item"
+        />
+     
+     
+        <input
+          type="text"
+          name="title"
+          placeholder="Title"
+          required
+          onChange={handleChange}
+          class="form-item"
+        />
+ 
+        <input
+          type="text"
+          name="price"
+          placeholder="Price"
+          required
+          pattern="[0-9]+(\.[0-9]{1,2})?"
+          title="Enter a valid price (e.g., 10.99)"
+          onChange={handleChange}
+          class="form-item"
+        />
+        <input
+          type="text"
+          name="description"
+          placeholder="Description"
+          required
+          onChange={handleChange}
+          class="form-item"
+        />
+          <select  class="form-item" name="category" onChange={handleChange}>
+          <option value="men's clothing">Men's clothing</option>
+          <option value="jewelry">Jewelry</option>
+          <option value="electronics">Electronics</option>
+          <option value="women's clothing">Women's clothing</option>
+        </select>
 
         <input  class="form-item" type="text" name="image" placeholder="Image" onChange={handleChange} />
 
