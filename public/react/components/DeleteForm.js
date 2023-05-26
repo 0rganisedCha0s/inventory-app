@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-
 const DeleteForm = () => {
   const [productId, setProductId] = useState('');
   const [submissionStatus, setSubmissionStatus] = useState('');
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       // Send a DELETE request to delete the item with the specified productId
       const response = await fetch(`http://localhost:3000/api/items/${productId}`, {
@@ -15,7 +12,6 @@ const DeleteForm = () => {
           'Content-Type': 'application/json',
         },
       });
-
       if (response.status === 200) {
         // Item deletion was successful
         setSubmissionStatus('Data deleted successfully!');
@@ -30,12 +26,10 @@ const DeleteForm = () => {
       setSubmissionStatus('Error: ' + error.message);
     }
   };
-
   const handleChange = (e) => {
     // Update the productId state when the input value changes
     setProductId(e.target.value);
   };
-
   return (
     <form onSubmit={handleSubmit} className="form-container">
       <h2>Delete Item</h2>
@@ -50,10 +44,8 @@ const DeleteForm = () => {
         class="form-item"
       />
       <button className='btn-alert' type="submit">Delete</button>
-
       {submissionStatus && <p>{submissionStatus}</p>}
     </form>
   );
 };
-
 export default DeleteForm;

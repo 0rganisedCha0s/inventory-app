@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import ItemsList from './ItemsList';
-import SelectedItem from './SelectedItem';
-import AddForm from './AddForm';
-import UpdateForm from './UpdateForm';
-import DeleteForm from './DeleteForm';
+import React, { useState, useEffect } from "react";
+import ItemsList from "./ItemsList";
+import SelectedItem from "./SelectedItem";
+import AddForm from "./AddForm";
+import UpdateForm from "./UpdateForm";
+import DeleteForm from "./DeleteForm";
 
-import apiURL from '../api';
+import apiURL from "../api";
 
 export const App = () => {
   const [items, setItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
+  // Function to handle item click and set the selected item
   const onItemClick = (item) => {
     setSelectedItem(item);
   };
 
+  // Function to handle going back to the list of items
   const handleBackToItems = () => {
     setSelectedItem(null);
   };
@@ -23,6 +25,7 @@ export const App = () => {
     fetchItems();
   }, []);
 
+  // Function to fetch the items from the api
   async function fetchItems() {
     try {
       const response = await fetch(`https://646e1c846d0e1f00b25bde26--rainbow-madeleine-e0519b.netlify.app/.netlify/functions/items`);
@@ -39,10 +42,14 @@ export const App = () => {
       <h1>Shop Until You Drop</h1>
      
       {selectedItem ? (
+        // Render the selected item component if an item is selected
         <SelectedItem item={selectedItem} onBack={handleBackToItems} />
       ) : (
         <>
+          {/* Render the list of items */}
           <ItemsList items={items} onItemClick={onItemClick} />
+
+          {/* Render the forms for adding, updating, and deleting items */}
           <div>
             <AddForm />
             <UpdateForm />
@@ -51,5 +58,5 @@ export const App = () => {
         </>
       )}
     </main>
-  ); 
+  );
 };

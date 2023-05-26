@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Item } from './Item';
-
 const ItemsList = ({ items, onItemClick }) => {
   // useState hook to manage the search query state
   const [searchQuery, setSearchQuery] = useState('');
-
   // Filtering items based on the search query
   const filteredItems = items.filter((item) => {
     const { title, description } = item;
@@ -39,5 +37,4 @@ const ItemsList = ({ items, onItemClick }) => {
     </div>
   ); 
 };
-
 export default ItemsList;
